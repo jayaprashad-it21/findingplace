@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Search</title>
+</head>
+<body>
+    <h1 style="background-color: green;"><center>Search for a Place on Google Maps</center></h1>
+    <br><br><br><br>
+    <center>
+    <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Enter a place">
+        <button type="submit">Search</button>
+    </center>
+        <style>
+         body{
+        background: url("location.gif");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        overflow: hidden;
+        }
+        </style>
+    </form>
+
+    <script>
+        document.getElementById("searchForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const searchQuery = document.getElementById("searchInput").value;
+            const encodedSearchQuery = encodeURIComponent(searchQuery);
+            const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedSearchQuery}`;
+            window.location.href = googleMapsUrl;
+        });
+    </script>
+</body>
+</html>
